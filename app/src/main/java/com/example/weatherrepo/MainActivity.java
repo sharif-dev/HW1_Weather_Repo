@@ -2,33 +2,63 @@ package com.example.weatherrepo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
-    private static Controller controller;
+    private LooperThread looperThread = new LooperThread();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
-        controller = new Controller(this);
-        Button search = findViewById(R.id.search);
-        search.setOnClickListener(new View.OnClickListener() {
+        looperThread.start();
+        MyHandler.activity = this;
+        Button btn = findViewById(R.id.search);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                controller.search();
+                searchThread();
             }
         });
+
     }
 
+    public void searchThread() {
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                EditText city = findViewById(R.id.edit_query_city);
+//                String cityName = city.getText().toString();
+//                city.setText("");
+//                Boolean isConnected = isConectedToInternet();
+//                if (!isConnected){
+//                    makeAToast("not connected to internet");
+//                    return;
+//                }
+//                ProgressDialog progressDialog = new ProgressDialog();
+//                progressDialog.setTitle("searching cities");
+//                progressDialog.setMessage("Loading...");
+//                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                progressDialog.setCancelable(false);
+//                progressDialog.show();
+//                SystemClock.sleep(2000);
+//                progressDialog.dismiss();
+//
+//            }
+//        };
+//        looperThread.handler.post(runnable);
+
+        Message msg = Message.obtain();
+        msg.what = MyHandler.SEARCH;
+        looperThread.handler.sendMessage(msg);
+    }
 
     public Boolean isConectedToInternet(){
         ConnectivityManager cm =
