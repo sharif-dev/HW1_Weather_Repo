@@ -25,6 +25,7 @@ public class MyHandler extends Handler {
     }
 
     private void addToFrag() {
+        //salam
 
     }
 
