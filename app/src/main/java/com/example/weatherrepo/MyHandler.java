@@ -3,6 +3,7 @@ package com.example.weatherrepo;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ public class MyHandler extends Handler {
     public void handleMessage(@NonNull Message msg) {
         switch (msg.what){
             case SEARCH:
-                getWeatherReport();
+                mapBoxHandling();
                 break;
             case ADD_TO_FRAG:
                 addToFrag();
@@ -29,7 +30,9 @@ public class MyHandler extends Handler {
 
     }
 
-    private void getWeatherReport() {
+
+
+    private void mapBoxHandling() {
         EditText city = activity.findViewById(R.id.edit_query_city);
         String cityName = city.getText().toString();
         city.setText("");
@@ -44,17 +47,21 @@ public class MyHandler extends Handler {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setCancelable(false);
         progressDialog.show();
+        Cities cities = VolleyRequests.mapBox(cityName);
+        if(cities == null) return;
+        String s = "";
+        for (int i = 0; i < 5; i++) {
+            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
 
-        String[] a = {"sunday", "monday", "tuesday", "wednsday", "friday", "sat"};
-        VolleyRequests.mapBox(cityName);
-
+        }
+        Log.d("salam", s);
         progressDialog.dismiss();
     }
 
 
 
 
-    private void makeAToast(String text) {
+    public static void makeAToast(String text) {
         Toast toast = Toast.makeText(activity.getApplicationContext(),text, Toast.LENGTH_SHORT);
         toast.show();
     }

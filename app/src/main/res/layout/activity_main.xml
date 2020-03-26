@@ -33,6 +33,7 @@
 
 
 
+
     <AutoCompleteTextView
         android:id="@+id/edit_query_city"
         android:layout_width="302dp"
@@ -70,5 +71,14 @@
         tools:layout_editor_absoluteX="5dp"
         tools:layout_editor_absoluteY="63dp" />
 
+    <TextView
+        android:id="@+id/volley"
+        android:textIsSelectable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="salam"
+        app:layout_constraintTop_toBottomOf="@+id/list_item"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
