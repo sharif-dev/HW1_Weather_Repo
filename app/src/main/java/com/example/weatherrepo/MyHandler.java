@@ -3,7 +3,6 @@ package com.example.weatherrepo;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -48,14 +47,17 @@ public class MyHandler extends Handler {
         progressDialog.setCancelable(false);
         progressDialog.show();
         Cities cities = VolleyRequests.mapBox(cityName);
-        if(cities == null) return;
-        String s = "";
-        for (int i = 0; i < 5; i++) {
-            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
-
+        if(cities == null) {
+            progressDialog.dismiss();
+            return;
         }
-        Log.d("salam", s);
-        progressDialog.dismiss();
+        // todo add cities info to listView
+//        String s = "";
+//        for (int i = 0; i < 5; i++) {
+//            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
+//
+//        }
+//        Log.d("salam", s);
     }
 
 
