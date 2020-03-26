@@ -58,6 +58,7 @@ public class MyHandler extends Handler {
 //
 //        }
 //        Log.d("salam", s);
+        progressDialog.dismiss();
     }
 
 
