@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Log.v("EditText", editText.getText().toString());
                 searchThread();
             }
         });
