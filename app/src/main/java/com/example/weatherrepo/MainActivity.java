@@ -8,7 +8,12 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
+
+import javax.crypto.Cipher;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchThread() {
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                EditText city = findViewById(R.id.edit_query_city);
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+//                AutoCompleteTextView city = findViewById(R.id.edit_query_city);
+//                String[] citys = getResources().getStringArray(R.array.citys);
+//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, citys);
+//                city.setAdapter(adapter);
 //                String cityName = city.getText().toString();
 //                city.setText("");
 //                Boolean isConnected = isConectedToInternet();
@@ -51,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
 //                progressDialog.show();
 //                SystemClock.sleep(2000);
 //                progressDialog.dismiss();
-//
-//            }
-//        };
-//        looperThread.handler.post(runnable);
+
+            }
+        };
+        looperThread.handler.post(runnable);
 
         Message msg = Message.obtain();
         msg.what = MyHandler.SEARCH;
