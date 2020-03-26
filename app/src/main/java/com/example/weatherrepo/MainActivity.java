@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.first_layout);lk
+        setContentView(R.layout.activity_main);
         looperThread.start();
         MyHandler.activity = this;
-        Button btn = findViewById(R.id.search);
+        Button btn = findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
