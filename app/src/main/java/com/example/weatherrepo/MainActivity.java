@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 searchThread();
-                //goTo2LayoutThread(49.6, 37.28333);
+                //goTo2LayoutThread(49.6, 37.28333);// rasht
             }
         });
 
