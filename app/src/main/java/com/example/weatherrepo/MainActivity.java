@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Log.v("EditText", editText.getText().toString());
                 searchThread();
+                //goTo2LayoutThread(49.6, 37.28333);
             }
         });
 
@@ -61,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
         Message msg = Message.obtain();
         msg.what = MyHandler.SEARCH;
+        looperThread.handler.sendMessage(msg);
+    }
+
+    public void goTo2LayoutThread(double east, double north) {
+        // east = Cities.city.center[0]
+        MyHandler.north = north;
+        MyHandler.east = east;
+        Message msg = Message.obtain();
+        msg.what = MyHandler.GET_WEATHER_REPORT;
         looperThread.handler.sendMessage(msg);
     }
 

@@ -3,6 +3,16 @@
     <string name="search">search</string>
     <string name="enter_city">enter city</string>
     <string name="select_a_city">Select a city</string>
+    <string name="map_boxing_title">searching cities</string>
+    <string name="loading_message">Loading...</string>
+    <string name="dark_sky_PD_title">getting weather info.</string>
+    <string name="no_internet_message">not connected to internet</string>
+    <string name="mapBox_token">pk.eyJ1Ijoic2gzcmxvY2szZCIsImEiOiJjazg3cWt4b2wwMHBiM2VudW53dnh1ZnMyIn0.tS6efj1lfx_LHz-iMord4A</string>
+    <string name="mapBox_url">https://api.mapbox.com/geocoding/v5/mapbox.places/</string>
+    <string name="skyMap_error">That didn\'t work!</string>
+    <string name="darkSky_url">https://api.darksky.net/forecast/50f72e187b72909ff399b472eb5d5150/</string>
+    <string name="darkSky_error">an error from DarkSky</string>
+    <string name="mapBox_json">.json?access_token=</string>
     <string-array name="citys">
         <item>Tehran</item>
         <item>Qom</item>

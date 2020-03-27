@@ -10,15 +10,20 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
 public class VolleyRequests {
-    private final static String token = "pk.eyJ1Ijoic2gzcmxvY2szZCIsImEiOiJjazg3cWt4b2wwMHBiM2VudW53dnh1ZnMyIn0.tS6efj1lfx_LHz-iMord4A";
+    private final static String token = MyHandler.activity.getString(R.string.mapBox_token);
+    private static final String mapBoxUrl = MyHandler.activity.getString(R.string.mapBox_url);
+    public static final String mapBoxJson = MyHandler.activity.getString(R.string.mapBox_json);
+    public static final String darkSkyUrl = MyHandler.activity.getString(R.string.darkSky_url);
     private static RequestQueue requestQueue = Volley.newRequestQueue(MyHandler.activity);
     private static Gson gson = new Gson();
     private static Cities cities = null;
     private static Boolean errorOnMap = false;
+    private static DarkSky weather = null;
+    private static Boolean errorOnSkyMap = false;
+
 
     public static Cities mapBox(String cityName) {
-        String query = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + cityName +
-                ".json?access_token=" + token;
+        String query = mapBoxUrl + cityName + mapBoxJson + token;
         cities = null;
         errorOnMap = false;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, query,
@@ -30,7 +35,7 @@ public class VolleyRequests {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                MyHandler.makeAToast("That didn't work!");
+                MyHandler.makeAToast(MyHandler.activity.getString(R.string.skyMap_error));
                 errorOnMap = true;
             }
         });
@@ -39,5 +44,30 @@ public class VolleyRequests {
             if (errorOnMap) return null;
         }
         return cities;
+    }
+
+    public static DarkSky darkSky(double north, double east){
+        String query = darkSkyUrl +north+","+east;
+        weather = null;
+        errorOnSkyMap = false;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, query, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                weather = gson.fromJson(response, DarkSky.class);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                MyHandler.makeAToast(MyHandler.activity.getString(R.string.darkSky_error));
+                errorOnSkyMap = true;
+            }
+        });
+        requestQueue.add(stringRequest);
+        while (weather == null){
+            if(errorOnSkyMap){
+                return null;
+            }
+        }
+        return weather;
     }
 }
