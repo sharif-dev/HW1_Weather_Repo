@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -61,8 +60,8 @@ public class MyHandler extends Handler {
 //        EditText city = activity.findViewById(R.id.edit_query_city);
 //        String cityName = city.getText().toString();
         AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
-        String[] cities_string = getResources().getStringArray(R.array.citys);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cities_string);
+        String[] cities_string = activity.getResources().getStringArray(R.array.citys);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
         city.setAdapter(adapter);
         String cityName = city.getText().toString();
         city.setText("");
@@ -84,20 +83,21 @@ public class MyHandler extends Handler {
         ListView listView = (ListView) activity.findViewById(R.id.listView);
         ArrayList<String> stringArrayList;
         stringArrayList = new ArrayList<>();
-
-        for (int i = 0; i < 5; i++) { // todo set i how many to go
+        int listViewLen = 0;
+        for (int i = 0; i < cities.features.length; i++) {
             String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1];
             stringArrayList.add(s);
         }
 
-        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, stringArrayList);
+        ArrayAdapter adapter1 = new ArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringArrayList);
         listView.setAdapter(adapter1);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectItem = (String) parent.getItemAtPosition(position);
                 String[] params = selectItem.split(" ");
-                // todo add request to dark sky
+                double east = 0, north = 0;// todo initialize east and north // east = Cities.city.center[0]
+                activity.goTo2LayoutThread(east, north);
             }
         });
 //        String s = "";
