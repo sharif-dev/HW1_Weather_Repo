@@ -3,10 +3,17 @@ package com.example.weatherrepo;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
 
 public class MyHandler extends Handler {
     public static final int SEARCH = 1;
@@ -51,7 +58,12 @@ public class MyHandler extends Handler {
     }
 
     private void mapBoxHandling() {
-        EditText city = activity.findViewById(R.id.edit_query_city);
+//        EditText city = activity.findViewById(R.id.edit_query_city);
+//        String cityName = city.getText().toString();
+        AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
+        String[] cities_string = getResources().getStringArray(R.array.citys);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cities_string);
+        city.setAdapter(adapter);
         String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();
@@ -68,13 +80,34 @@ public class MyHandler extends Handler {
             progressDialog.dismiss();
             return;
         }
-        // todo add cities info to listView
+
+        ListView listView = (ListView) activity.findViewById(R.id.listView);
+        ArrayList<String> stringArrayList;
+        stringArrayList = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) { // todo set i how many to go
+            String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1];
+            stringArrayList.add(s);
+        }
+
+        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, stringArrayList);
+        listView.setAdapter(adapter1);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectItem = (String) parent.getItemAtPosition(position);
+                String[] params = selectItem.split(" ");
+                // todo add request to dark sky
+            }
+        });
 //        String s = "";
 //        for (int i = 0; i < 5; i++) {
 //            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
 //
 //        }
 //        Log.d("salam", "mapBoxHandling: " + s);
+
+
         progressDialog.dismiss();
     }
 

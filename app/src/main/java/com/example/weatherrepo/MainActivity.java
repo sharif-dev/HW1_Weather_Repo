@@ -6,6 +6,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;

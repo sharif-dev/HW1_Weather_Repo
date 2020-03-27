@@ -50,7 +50,7 @@
 
 
 
-    <ProgressBar
+    <!--<ProgressBar
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="180dp"
@@ -61,24 +61,23 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_query_city" />
 
 
-
     <ListView
         android:id="@+id/list_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/button_city"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="63dp" />
+        tools:layout_editor_absoluteX="5dp" />-->
 
-    <TextView
-        android:id="@+id/volley"
-        android:textIsSelectable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="salam"
-        app:layout_constraintTop_toBottomOf="@+id/list_item"
-        tools:layout_editor_absoluteX="0dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="408dp"
+        android:layout_height="665dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/edit_query_city"
+        tools:layout_editor_absoluteX="2dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
