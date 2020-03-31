@@ -3,6 +3,7 @@ package com.example.weatherrepo;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,8 +62,8 @@ public class MyHandler extends Handler {
 //        String cityName = city.getText().toString();
         AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
         String[] cities_string = activity.getResources().getStringArray(R.array.citys);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
-        city.setAdapter(adapter);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
+        //city.setAdapter(adapter);
         String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();
@@ -80,7 +81,7 @@ public class MyHandler extends Handler {
             return;
         }
 
-        ListView listView = (ListView) activity.findViewById(R.id.listView);
+        //ListView listView = (ListView) activity.findViewById(R.id.listView);
         ArrayList<String> stringArrayList;
         stringArrayList = new ArrayList<>();
         int listViewLen = 0;
@@ -89,23 +90,23 @@ public class MyHandler extends Handler {
             stringArrayList.add(s);
         }
 
-        ArrayAdapter adapter1 = new ArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringArrayList);
-        listView.setAdapter(adapter1);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectItem = (String) parent.getItemAtPosition(position);
-                String[] params = selectItem.split(" ");
-                double east = 0, north = 0;// todo initialize east and north // east = Cities.city.center[0]
-                activity.goTo2LayoutThread(east, north);
-            }
-        });
-//        String s = "";
-//        for (int i = 0; i < 5; i++) {
-//            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
-//
-//        }
-//        Log.d("salam", "mapBoxHandling: " + s);
+        //ArrayAdapter adapter1 = new ArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringArrayList);
+        //listView.setAdapter(adapter1);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String selectItem = (String) parent.getItemAtPosition(position);
+//                String[] params = selectItem.split(" ");
+//                double east = 0, north = 0;// todo initialize east and north // east = Cities.city.center[0]
+//                activity.goTo2LayoutThread(east, north);
+//            }
+//        });
+        String s = "";
+        for (int i = 0; i < cities.features.length; i++) {
+            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
+
+        }
+        Log.d("salam", "mapBoxHandling: " + s);
 
 
         progressDialog.dismiss();
