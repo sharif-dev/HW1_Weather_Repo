@@ -83,13 +83,15 @@ public class MyHandler extends Handler {
         ListView listView = (ListView) activity.findViewById(R.id.listView);
         ArrayList<String> stringArrayList;
         stringArrayList = new ArrayList<>();
+        String[] stringList = new String[cities.features.length];
         int listViewLen = 0;
         for (int i = 0; i < cities.features.length; i++) {
             String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1];
             stringArrayList.add(s);
+            stringList[i] = s;
         }
 
-        ArrayAdapter adapter1 = new ArrayAdapter(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringArrayList);
+        ArrayAdapter adapter1 = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringList);
         listView.setAdapter(adapter1);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

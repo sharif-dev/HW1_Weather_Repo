@@ -17,5 +17,9 @@
         <item>Tehran</item>
         <item>Qom</item>
         <item>Mashhad</item>
+        <item>London</item>
+        <item>Tabriz</item>
+        <item>Zahedan</item>
+        <item>Kerman</item>
     </string-array>
 </resources>
