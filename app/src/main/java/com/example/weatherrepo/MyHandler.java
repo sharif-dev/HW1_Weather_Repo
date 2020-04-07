@@ -157,7 +157,7 @@ public class MyHandler extends Handler {
             }
         });*/
         String s = "";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < cities.features.length; i++) {
             s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
 
         }
