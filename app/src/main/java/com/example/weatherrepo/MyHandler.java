@@ -3,6 +3,7 @@ package com.example.weatherrepo;
 import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -73,6 +74,7 @@ public class MyHandler extends Handler {
             makeAToast(activity.getString(R.string.no_internet_message));
             return;
         }
+        /*
         Button btn = activity.findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,8 +123,8 @@ public class MyHandler extends Handler {
 
             }
         });
-
-        /*ProgressDialog progressDialog = createProgressDialog(
+*/
+        ProgressDialog progressDialog = createProgressDialog(
                 activity.getString(R.string.map_boxing_title),
                 activity.getString(R.string.loading_message));
         progressDialog.show();
@@ -131,7 +133,7 @@ public class MyHandler extends Handler {
             progressDialog.dismiss();
             return;
         }
-
+        /*
         ListView listView = (ListView) activity.findViewById(R.id.listView);
         ArrayList<String> stringArrayList;
         stringArrayList = new ArrayList<>();
@@ -153,16 +155,16 @@ public class MyHandler extends Handler {
                 double east = 0, north = 0;// todo initialize east and north // east = Cities.city.center[0]
                 activity.goTo2LayoutThread(east, north);
             }
-        });
-//        String s = "";
-//        for (int i = 0; i < 5; i++) {
-//            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
-//
-//        }
-//        Log.d("salam", "mapBoxHandling: " + s);
+        });*/
+        String s = "";
+        for (int i = 0; i < 5; i++) {
+            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
+
+        }
+        Log.d("salam", "mapBoxHandling: " + s);
 
 
-        progressDialog.dismiss();*/
+        progressDialog.dismiss();
     }
 
 
