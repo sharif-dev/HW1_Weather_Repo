@@ -1,6 +1,7 @@
 package com.example.weatherrepo;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -172,7 +173,6 @@ public class MyHandler extends Handler {
         Log.d("salam", "mapBoxHandling: " + all);
         ArrayAdapter adapter11 = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringList);
         listView.setAdapter(adapter11);
-
 
         //progressDialog.dismiss();
     }

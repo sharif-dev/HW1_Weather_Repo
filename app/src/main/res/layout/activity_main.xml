@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/wist">
 
 
     <!--<EditText
@@ -63,7 +64,8 @@
         android:hint="@string/select_a_city"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor,MissingConstraints"
-        tools:layout_editor_absoluteX="74dp" />
+        tools:layout_editor_absoluteX="74dp"/>
+
 
     <ListView
         android:id="@+id/listView"
