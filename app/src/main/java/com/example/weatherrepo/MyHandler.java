@@ -66,7 +66,10 @@ public class MyHandler extends Handler {
         String[] cities_string = activity.getResources().getStringArray(R.array.citys);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
         city.setAdapter(adapter);*/
-        EditText city = activity.findViewById(R.id.edit_query_city);
+        AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
+        String[] cities_string = activity.getResources().getStringArray(R.array.citys);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
+        city.setAdapter(adapter);
         final String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();

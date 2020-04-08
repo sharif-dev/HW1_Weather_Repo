@@ -55,7 +55,7 @@
         android:background="@drawable/custom_button"
         tools:ignore="MissingConstraints" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/edit_query_city"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
