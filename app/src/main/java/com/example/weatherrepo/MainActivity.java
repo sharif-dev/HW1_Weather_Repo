@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private LooperThread looperThread = new LooperThread();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         looperThread.start();
         MyHandler.activity = this;
+        MyHandler.context = this;
         //searchThread();
         Button btn = findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {

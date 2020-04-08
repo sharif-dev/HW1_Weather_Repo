@@ -12,6 +12,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ public class MyHandler extends Handler {
     public static final int GET_WEATHER_REPORT = 2;
     public static MainActivity activity;
     public static double north, east;
+    public static Context context;
 
     @Override
     public void handleMessage(@NonNull Message msg) {
@@ -69,9 +71,9 @@ public class MyHandler extends Handler {
         city.setAdapter(adapter);*/
         AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
         String[] cities_string = activity.getResources().getStringArray(R.array.citys);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, cities_string);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, cities_string);
         city.setAdapter(adapter);
-        final String cityName = city.getText().toString();
+        String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();
         if (!isConnected){
@@ -164,14 +166,17 @@ public class MyHandler extends Handler {
 
         ListView listView = (ListView) activity.findViewById(R.id.listView);
         String[] stringList = new String[cities.features.length];
+        ArrayList<String> stringArrayList;
+        stringArrayList = new ArrayList<>();
         String all = " ";
         for (int i = 0; i < cities.features.length; i++) {
             String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
             all += s;
+            stringArrayList.add(s);
             stringList[i] = s;
         }
         Log.d("salam", "mapBoxHandling: " + all);
-        ArrayAdapter adapter11 = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringList);
+        ArrayAdapter adapter11 = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, stringArrayList);
         listView.setAdapter(adapter11);
 
         //progressDialog.dismiss();
