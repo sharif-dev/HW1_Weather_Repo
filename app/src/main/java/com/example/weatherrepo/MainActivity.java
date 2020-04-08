@@ -23,22 +23,17 @@ public class MainActivity extends AppCompatActivity {
         looperThread.start();
         MyHandler.activity = this;
         //searchThread();
-        /*Button btn = findViewById(R.id.button_city);
+        Button btn = findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //searchThread();
+                searchThread();
                 //goTo2LayoutThread(49.6, 37.28333);// rasht
             }
-        });*/
+        });
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        searchThread();
-    }
 
     public void searchThread() {
 //        Runnable runnable = new Runnable() {
