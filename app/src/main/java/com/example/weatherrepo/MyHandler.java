@@ -159,15 +159,22 @@ public class MyHandler extends Handler {
                 activity.goTo2LayoutThread(east, north);
             }
         });*/
-        String s = "";
-        for (int i = 0; i < cities.features.length; i++) {
-            s += cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
-
-        }
-        Log.d("salam", "mapBoxHandling: " + s);
-
-
         progressDialog.dismiss();
+
+        ListView listView = (ListView) activity.findViewById(R.id.listView);
+        String[] stringList = new String[cities.features.length];
+        String all = " ";
+        for (int i = 0; i < cities.features.length; i++) {
+            String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
+            all += s;
+            stringList[i] = s;
+        }
+        Log.d("salam", "mapBoxHandling: " + all);
+        ArrayAdapter adapter11 = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, stringList);
+        listView.setAdapter(adapter11);
+
+
+        //progressDialog.dismiss();
     }
 
 
