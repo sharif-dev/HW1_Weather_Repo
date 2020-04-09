@@ -192,7 +192,7 @@ public class MyHandler extends Handler {
             day.setTimezone(weather.getTimezone());
             day.setTime(weather.daily.data[i].getTime());
             day.setIcon(weather.daily.data[i].getIcon());
-           // day.setSummary(jsonObject.getString("summary"));
+            day.setSummary(weather.daily.data[i].getSummary());
             day.setMaxTemperature(weather.daily.data[i].getTemperatureMax());
             daysList.add(day);
         }

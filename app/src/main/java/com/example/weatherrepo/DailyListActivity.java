@@ -36,7 +36,7 @@ public class DailyListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         String message = daysList.get(position).getSummary();
-        String temperature = daysList.get(position).getMaxTemperature()+"";
+        String temperature = String.valueOf((int)((daysList.get(position).getMaxTemperature()-32)/1.8));
         String dayOfWeek = daysList.get(position).getDayOfWeek();
 
         String finalS = String.format("On %s it will be %s and today %s",dayOfWeek,temperature,message);

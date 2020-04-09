@@ -45,7 +45,7 @@
         android:textAlignment="center"
         android:textColor="#C5E7E7"
         android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:gravity="center_vertical" />
 
     <Space
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         android:textColor="#C5E7E7"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:gravity="center_vertical" />
 
     <Space
         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
         android:textAlignment="center"
         android:textColor="#C5E7E7"
         android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:gravity="center_vertical" />
 
     <Space
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
         android:textAlignment="center"
         android:textColor="#C5E7E7"
         android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:gravity="center_vertical" />
 
     <Space
         android:layout_width="match_parent"
@@ -117,7 +117,7 @@
         android:textAlignment="center"
         android:textColor="#C5E7E7"
         android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:gravity="center_vertical" />
 
     <Space
         android:layout_width="match_parent"

@@ -41,7 +41,8 @@ android:background="@drawable/bg_gradient">
     android:layout_centerHorizontal="true"
     android:textColor="#C5E7E7"
     android:textSize="22sp"
-    android:textStyle="bold" />
+    android:textStyle="bold"
+    android:paddingTop="30dp"/>
 
 </RelativeLayout>
     <!--<?xml version="1.0" encoding="utf-8"?>-->
