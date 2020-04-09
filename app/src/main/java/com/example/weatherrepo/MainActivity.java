@@ -5,17 +5,20 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
     private LooperThread looperThread = new LooperThread();
+    TextView[] textViews;
 
 
     @Override
@@ -24,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         looperThread.start();
         MyHandler.activity = this;
-        MyHandler.context = this;
-        //searchThread();
         Button btn = findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,37 +36,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        textViews = new TextView[]{findViewById(R.id.city0), findViewById(R.id.city1), findViewById(R.id.city2), findViewById(R.id.city3), findViewById(R.id.city4)};
+        for(int i = 0; i < 5; i++) {
+            MyHandler.globalCities[i] = new Cities.city();
+            MyHandler.globalCities[i].place_name = "";
+            MyHandler.globalCities[i].center = new double[]{0, 0};
+        }
+        for(int i = 0; i < 5; i++) {
+            final int finalI = i;
+            textViews[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Cities.city c = MyHandler.globalCities[finalI];
+                    if(!c.place_name.equals("")){
+                        goTo2LayoutThread(c.center[0], c.center[1]);
+                    }
+                }
+            });
+        }
+
     }
 
 
     public void searchThread() {
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                AutoCompleteTextView city = findViewById(R.id.edit_query_city);
-//                String[] citys = getResources().getStringArray(R.array.citys);
-//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, citys);
-//                city.setAdapter(adapter);
-//                String cityName = city.getText().toString();
-//                city.setText("");
-//                Boolean isConnected = isConectedToInternet();
-//                if (!isConnected){
-//                    makeAToast("not connected to internet");
-//                    return;
-//                }
-//                ProgressDialog progressDialog = new ProgressDialog();
-//                progressDialog.setTitle("searching cities");
-//                progressDialog.setMessage("Loading...");
-//                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                progressDialog.setCancelable(false);
-//                progressDialog.show();
-//                SystemClock.sleep(2000);
-//                progressDialog.dismiss();
-//
-//            }
-//        };
-//        looperThread.handler.post(runnable);
-
         Message msg = Message.obtain();
         msg.what = MyHandler.SEARCH;
         looperThread.handler.sendMessage(msg);
@@ -73,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goTo2LayoutThread(double east, double north) {
         // east = Cities.city.center[0]
+        Log.d("salam", "goTo2LayoutThread: " + east + "  " + north);
         MyHandler.north = north;
         MyHandler.east = east;
         Message msg = Message.obtain();
