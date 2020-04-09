@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+android:paddingLeft="16dp"
+android:paddingRight="16dp"
+android:background="@drawable/bg_gradient">
+
+
+<ListView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@android:id/list"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:dividerHeight="0dp"
+    android:divider="@null"
+    android:layout_alignParentEnd="false"
+    android:layout_below="@+id/textViewHeader"
+    android:layout_alignParentRight="false" />
+
+    <!--    android:layout_above="@+id/textViewFooter"-->
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/no_data_found"
+    android:id="@android:id/empty"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:textSize="18sp" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="The weather for 7 days"
+    android:id="@+id/textViewHeader"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:textColor="#80FFFF"
+    android:textSize="20sp" />
+
+</RelativeLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    tools:context=".MainActivity">-->
+
+
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

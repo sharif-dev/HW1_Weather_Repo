@@ -13,6 +13,8 @@
     <string name="darkSky_url">https://api.darksky.net/forecast/50f72e187b72909ff399b472eb5d5150/</string>
     <string name="darkSky_error">an error from DarkSky</string>
     <string name="mapBox_json">.json?access_token=</string>
+    <string name="no_data_found">No Data could be loaded..</string>
+    <string name="title_activity_daily_list">DailyListActivity</string>
     <string-array name="citys">
         <item>Tehran</item>
         <item>Qom</item>

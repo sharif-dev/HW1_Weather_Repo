@@ -11,7 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,8 +26,6 @@ public class MyHandler extends Handler {
     public static final int GET_WEATHER_REPORT = 2;
     public static MainActivity activity;
     public static double north, east;
-
-    @Override
     public void handleMessage(@NonNull Message msg) {
         switch (msg.what){
             case SEARCH:
@@ -37,6 +38,9 @@ public class MyHandler extends Handler {
     }
 
     private void getWeatherReport() {
+        TextView textViewTemrature = activity.findViewById(R.id.textViewTemperature);
+        TextView textViewDay = activity.findViewById(R.id.textViewDay);
+        ImageView imageViewIcon = activity.findViewById(R.id.imageViewIcon);
         Boolean isConnected = activity.isConectedToInternet();
         if (!isConnected){
             makeAToast(activity.getString(R.string.no_internet_message));
