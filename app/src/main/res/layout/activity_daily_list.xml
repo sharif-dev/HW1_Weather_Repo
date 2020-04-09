@@ -37,8 +37,9 @@ android:background="@drawable/bg_gradient">
     android:id="@+id/textViewHeader"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    android:textColor="#80FFFF"
-    android:textSize="20sp" />
+    android:textColor="#C5E7E7"
+    android:textSize="22sp"
+    android:textStyle="bold" />
 
 </RelativeLayout>
     <!--<?xml version="1.0" encoding="utf-8"?>-->
