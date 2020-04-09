@@ -42,7 +42,8 @@
         android:textSize="15sp"
         android:background="@drawable/text_style"
         android:padding="10dp"
-        android:textColor="#F3F6F6"/>
+        android:textColor="#C5E7E7"
+        android:textStyle="bold" />
 
     <Space
         android:layout_width="match_parent"
@@ -57,7 +58,8 @@
         android:textSize="15sp"
         android:background="@drawable/text_style"
         android:padding="10dp"
-        android:textColor="#F3F6F6"/>
+        android:textColor="#C5E7E7"
+        android:textStyle="bold"/>
 
     <Space
         android:layout_width="match_parent"
@@ -72,7 +74,8 @@
         android:textSize="15sp"
         android:background="@drawable/text_style"
         android:padding="10dp"
-        android:textColor="#F3F6F6"/>
+        android:textColor="#C5E7E7"
+        android:textStyle="bold"/>
 
     <Space
         android:layout_width="match_parent"
@@ -87,7 +90,8 @@
         android:textSize="15sp"
         android:background="@drawable/text_style"
         android:padding="10dp"
-        android:textColor="#F3F6F6"/>
+        android:textColor="#C5E7E7"
+        android:textStyle="bold"/>
 
     <Space
         android:layout_width="match_parent"
@@ -102,7 +106,8 @@
         android:textSize="15sp"
         android:background="@drawable/text_style"
         android:padding="10dp"
-        android:textColor="#F3F6F6"/>
+        android:textColor="#C5E7E7"
+        android:textStyle="bold"/>
 
     <Space
         android:layout_width="match_parent"
