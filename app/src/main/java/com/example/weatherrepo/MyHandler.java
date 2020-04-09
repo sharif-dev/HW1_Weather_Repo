@@ -61,7 +61,6 @@ public class MyHandler extends Handler {
         return daysList;
     }
 
-    public static Boolean createSecondLayout = false;
     private void getWeatherReport() {
         Boolean isConnected = activity.isConectedToInternet();
         if (!isConnected){
@@ -85,12 +84,12 @@ public class MyHandler extends Handler {
     private void mapBoxHandling() {
         //comment for Auto
 
-        AutoCompleteTextView city = (AutoCompleteTextView) activity.findViewById(R.id.edit_query_city);
-        String[] cities_string = activity.getResources().getStringArray(R.array.citys);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, cities_string);
-        city.setAdapter(adapter);
+//        AutoCompleteTextView city = (AutoCompleteTextView) activity.findViewById(R.id.edit_query_city);
+//        String[] cities_string = activity.getResources().getStringArray(R.array.citys);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, cities_string);
+//        city.setAdapter(adapter);
 
-        //EditText city = activity.findViewById(R.id.edit_query_city);
+        EditText city = activity.findViewById(R.id.edit_query_city);
         final String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();
@@ -114,6 +113,7 @@ public class MyHandler extends Handler {
         }
         Log.d("salam", "mapBoxHandling: " + s);
         progressDialog.dismiss();
+
         ArrayList<String> list = new ArrayList<>();
         for(Cities.city i : cities.features) {
             list.add(i.place_name);
@@ -170,10 +170,6 @@ public class MyHandler extends Handler {
 
 
     }
-
-
-
-
 
     public static void makeAToast(String text) {
         Toast toast = Toast.makeText(activity.getApplicationContext(),text, Toast.LENGTH_SHORT);

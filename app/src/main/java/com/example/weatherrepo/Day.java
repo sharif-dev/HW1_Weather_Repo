@@ -74,6 +74,7 @@ public class Day implements Parcelable{
             Date date = new Date(getTime() * 1000);
             return simpleDateFormat.format(date);
         } catch (Exception e){
+            // TODO blahblah
             Log.d("aaaaa", "getDayOfWeek: error");
             return "error in getDayOfWeek";
         }

@@ -2,6 +2,7 @@ package com.example.weatherrepo;
 
 import android.content.Context;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,13 @@ public class DayAdapter extends BaseAdapter {
 
         Day day = daysList.get(position);
         viewHolder.imageViewIcon.setImageResource(day.getIconId());
-        viewHolder.textViewTemperature.setText(day.getMaxTemperature());
+        // TODO fix
+        try {
+            viewHolder.textViewTemperature.setText(day.getMaxTemperature());
+        } catch (Exception e){
+            Log.d("xxx", "getView: ");
+            viewHolder.textViewTemperature.setText("error day");
+        }
         if(position == 0){
             viewHolder.textViewDay.setText("Today");
         }else {
