@@ -30,7 +30,7 @@ public class MyHandler extends Handler {
     public static MainActivity activity;
     public static double north, east;
     public static Cities.city[] globalCities = new Cities.city[5];
-    private static ArrayList<Day> daysList;
+    private static ArrayList<Day> daysList = new ArrayList<>();
 
     @Override
     public void handleMessage(@NonNull Message msg) {

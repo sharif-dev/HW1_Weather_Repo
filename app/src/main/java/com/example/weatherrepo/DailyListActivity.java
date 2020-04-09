@@ -27,7 +27,6 @@ public class DailyListActivity extends ListActivity {
             Log.d("DailyA", daysList.toString());
 
         }
-
         DayAdapter adapter = new DayAdapter(this,daysList);
         setListAdapter(adapter);
 
