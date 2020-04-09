@@ -2,6 +2,7 @@ package com.example.weatherrepo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -67,10 +68,15 @@ public class Day implements Parcelable{
     }
 
     public String getDayOfWeek(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone(getTimezone()));
-        Date date = new Date(getTime() * 1000);
-        return simpleDateFormat.format(date);
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone(getTimezone()));
+            Date date = new Date(getTime() * 1000);
+            return simpleDateFormat.format(date);
+        } catch (Exception e){
+            Log.d("aaaaa", "getDayOfWeek: error");
+            return "error in getDayOfWeek";
+        }
 
     }
 

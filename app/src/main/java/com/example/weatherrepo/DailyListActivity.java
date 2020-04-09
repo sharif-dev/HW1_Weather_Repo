@@ -14,7 +14,6 @@ import com.example.weatherrepo.DayAdapter;
 import com.example.weatherrepo.Day;
 
 public class DailyListActivity extends ListActivity {
-
     ArrayList<Day> daysList;
 
     @Override
@@ -24,13 +23,12 @@ public class DailyListActivity extends ListActivity {
 
         if(getIntent().getExtras() != null){
             daysList = MyHandler.getDaysList();
-            Log.d("DailyA", daysList.toString());
+            Log.d("aaaaa", daysList.toString());
 
         }
 
         DayAdapter adapter = new DayAdapter(this,daysList);
         setListAdapter(adapter);
-
 
     }
 

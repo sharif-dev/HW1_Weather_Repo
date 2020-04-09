@@ -27,6 +27,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 public class MyHandler extends Handler {
     public static final int SEARCH = 1;
     public static final int GET_WEATHER_REPORT = 2;
+    public static final int GO_TO_SECOND_LAYOUT = 3;
     public static MainActivity activity;
     public static double north, east;
     public static Cities.city[] globalCities = new Cities.city[5];
@@ -41,31 +42,44 @@ public class MyHandler extends Handler {
             case GET_WEATHER_REPORT:
                 getWeatherReport();
                 break;
+            case GO_TO_SECOND_LAYOUT:
+                goToSecondThread();
+                break;
         }
+    }
+
+    private void goToSecondThread() {
+        Log.d("aaaaa", "goToSecondThread: A");
+        Intent i = new Intent(activity, DailyListActivity.class);
+        i.putExtra("day_info",getDaysList());
+        activity.startActivity(i);
+        Log.d("aaaaa", "goToSecondThread: B");
+
     }
 
     public static ArrayList<Day> getDaysList() {
         return daysList;
     }
 
+    public static Boolean createSecondLayout = false;
     private void getWeatherReport() {
         Boolean isConnected = activity.isConectedToInternet();
         if (!isConnected){
             makeAToast(activity.getString(R.string.no_internet_message));
             return;
         }
-        //
+        daysList = new ArrayList<>();
         ProgressDialog progressDialog = createProgressDialog(
                 activity.getString(R.string.dark_sky_PD_title),
                 activity.getString(R.string.loading_message));
         progressDialog.show();
-
         DarkSky result = VolleyRequests.darkSky(north, east);
         setDaysList(daysList,result);
-
-        // todo set second layout
-        //  go to second layout
         progressDialog.dismiss();
+        Message msg = Message.obtain();
+        msg.what = MyHandler.GO_TO_SECOND_LAYOUT;
+        activity.looperThread.handler.sendMessage(msg);
+
     }
 
     private void mapBoxHandling() {
@@ -184,7 +198,6 @@ public class MyHandler extends Handler {
             day.setIcon(weather.daily.data[i].getIcon());
            // day.setSummary(jsonObject.getString("summary"));
             day.setMaxTemperature(weather.daily.data[i].getTemperatureMax());
-
             daysList.add(day);
         }
     }

@@ -25,7 +25,7 @@ import static com.example.weatherrepo.MyHandler.getDaysList;
 
 
 public class MainActivity extends AppCompatActivity {
-    private LooperThread looperThread = new LooperThread();
+    public LooperThread looperThread = new LooperThread();
     TextView[] textViews;
 
     @Override
@@ -78,10 +78,11 @@ public class MainActivity extends AppCompatActivity {
         MyHandler.east = east;
         Message msg = Message.obtain();
         msg.what = MyHandler.GET_WEATHER_REPORT;
-        Intent i = new Intent(this, DailyListActivity.class);
-        i.putExtra("day_info",getDaysList());
-        startActivity(i);
         looperThread.handler.sendMessage(msg);
+        Log.d("salam", "goTo2LayoutThread: inja");
+//        Intent i = new Intent(this, DailyListActivity.class);
+//        i.putExtra("day_info",getDaysList());
+//        startActivity(i);
     }
 
     public Boolean isConectedToInternet(){
