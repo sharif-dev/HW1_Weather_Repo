@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         looperThread.start();
         MyHandler.activity = this;
+        
         Button btn = findViewById(R.id.button_city);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

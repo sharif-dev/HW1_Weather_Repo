@@ -15,6 +15,7 @@
     <string name="mapBox_json">.json?access_token=</string>
     <string name="no_data_found">No Data could be loaded..</string>
     <string name="title_activity_daily_list">DailyListActivity</string>
+    <string name="the_weather_for_7_days">The weather for 7 days</string>
     <string-array name="citys">
         <item>Tehran</item>
         <item>Qom</item>
