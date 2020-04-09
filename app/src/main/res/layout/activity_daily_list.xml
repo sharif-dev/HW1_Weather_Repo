@@ -33,7 +33,7 @@ android:background="@drawable/bg_gradient">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="The weather for 7 days"
+    android:text="@string/the_weather_for_7_days"
     android:id="@+id/textViewHeader"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
