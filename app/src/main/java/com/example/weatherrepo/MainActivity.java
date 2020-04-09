@@ -14,12 +14,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
     private LooperThread looperThread = new LooperThread();
     TextView[] textViews;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
         return isConnected;
     }
+
 
 }
