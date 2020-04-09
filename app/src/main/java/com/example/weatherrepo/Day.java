@@ -40,7 +40,8 @@ public class Day implements Parcelable{
     }
 
     public String getSummary() {
-        return summary;
+            return summary;
+
     }
 
     public void setSummary(String summary) {

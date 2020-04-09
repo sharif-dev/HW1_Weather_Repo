@@ -1,11 +1,20 @@
 package com.example.weatherrepo;
 
 public class DarkSky {
+    String timezone;
+    public String getTimezone() {
+        return timezone;
+    }
     public static class Daily{
         public static class Situation{
             String summary;
             String icon;
             String timezone;
+            long time;
+
+            public long getTime() {
+                return time;
+            }
 
             public String getSummary() {
                 return summary;
@@ -15,9 +24,6 @@ public class DarkSky {
                 return icon;
             }
 
-            public String getTimezone() {
-                return timezone;
-            }
 
             public double getTemperatureMax() {
                 return temperatureMax;

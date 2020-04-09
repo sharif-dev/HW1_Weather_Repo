@@ -189,8 +189,8 @@ public class MyHandler extends Handler {
         for (int i = 0; i < weather.daily.data.length; i++) {
 
             Day day = new Day();
-            day.setTimezone(weather.daily.data[i].getTimezone());
-           // day.setTime(jsonObject.getLong("time"));
+            day.setTimezone(weather.getTimezone());
+            day.setTime(weather.daily.data[i].getTime());
             day.setIcon(weather.daily.data[i].getIcon());
            // day.setSummary(jsonObject.getString("summary"));
             day.setMaxTemperature(weather.daily.data[i].getTemperatureMax());

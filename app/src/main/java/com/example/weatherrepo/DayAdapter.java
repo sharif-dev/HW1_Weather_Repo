@@ -63,7 +63,7 @@ public class DayAdapter extends BaseAdapter {
         viewHolder.imageViewIcon.setImageResource(day.getIconId());
         // TODO fix
         try {
-            viewHolder.textViewTemperature.setText(day.getMaxTemperature());
+            viewHolder.textViewTemperature.setText(String.valueOf(day.getMaxTemperature()));
         } catch (Exception e){
             Log.d("xxx", "getView: ");
             viewHolder.textViewTemperature.setText("error day");
