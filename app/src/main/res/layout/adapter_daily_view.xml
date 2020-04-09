@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingLeft="60dp"
+    android:paddingRight="40dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    tools:background="#2196F3">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewCircle"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/bg_temperature"
+        android:layout_alignParentLeft="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewIcon"
+        android:src="@mipmap/clear_day"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageViewCircle"
+        android:layout_toRightOf="@+id/imageViewCircle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textViewDay"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageViewIcon"
+        tools:text = "Monday"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_toRightOf="@+id/imageViewIcon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:id="@+id/textViewTemperature"
+        android:layout_alignTop="@+id/imageViewCircle"
+        android:layout_alignBottom="@+id/imageViewCircle"
+        android:layout_alignLeft="@+id/imageViewCircle"
+        android:layout_alignRight="@+id/imageViewCircle"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        tools:text="100"
+        android:textColor="#0D47A1"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>
