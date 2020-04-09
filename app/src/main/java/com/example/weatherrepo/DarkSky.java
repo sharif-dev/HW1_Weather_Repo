@@ -32,6 +32,11 @@ public class DarkSky {
             long sunsetTime;
             String precipType;
             double temperatureMin;
+
+            public double getTemperatureMin() {
+                return temperatureMin;
+            }
+
             long temperatureMinTime;
             double temperatureMax;
             long temperatureMaxTime;
