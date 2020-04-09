@@ -58,6 +58,13 @@ public class MyHandler extends Handler {
     }
 
     private void mapBoxHandling() {
+        //comment for Auto
+        /*
+        AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
+        String[] cities_string = activity.getResources().getStringArray(R.array.citys);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, cities_string);
+        city.setAdapter(adapter);
+         */
         EditText city = activity.findViewById(R.id.edit_query_city);
         final String cityName = city.getText().toString();
         city.setText("");
@@ -101,9 +108,29 @@ public class MyHandler extends Handler {
             }
         }
 
-
-
-
+        //list view
+        /*
+          ListView listView = (ListView) activity.findViewById(R.id.listView);
+        String[] stringList = new String[cities.features.length];
+        String all = " ";
+        for (int i = 0; i < cities.features.length; i++) {
+            String s = cities.features[i].place_name + "  " + cities.features[i].center[0] + "  " + cities.features[i].center[1]+"\n";
+            all += s;
+            stringList[i] = s;
+        }
+        Log.d("salam", "mapBoxHandling: " + s);
+        Log.d("salam", "mapBoxHandling: " + all);
+        ArrayAdapter adapter11 = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, stringList);
+        listView.setAdapter(adapter11);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectItem = (String) parent.getItemAtPosition(position);
+                String[] params = selectItem.split(" ");
+                // todo add request to dark sky
+            }
+        });
+        */
 
 
 
