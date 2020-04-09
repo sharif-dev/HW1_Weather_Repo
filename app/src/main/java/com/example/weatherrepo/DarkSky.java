@@ -4,6 +4,25 @@ public class DarkSky {
     public static class Daily{
         public static class Situation{
             String summary;
+            String icon;
+            String timezone;
+
+            public String getSummary() {
+                return summary;
+            }
+
+            public String getIcon() {
+                return icon;
+            }
+
+            public String getTimezone() {
+                return timezone;
+            }
+
+            public double getTemperatureMax() {
+                return temperatureMax;
+            }
+
             long sunsetTime;
             String precipType;
             double temperatureMin;

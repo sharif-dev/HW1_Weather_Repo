@@ -2,6 +2,7 @@ package com.example.weatherrepo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -19,6 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import com.example.weatherrepo.DailyListActivity;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class MyHandler extends Handler {
     public static final int SEARCH = 1;
@@ -26,6 +30,7 @@ public class MyHandler extends Handler {
     public static MainActivity activity;
     public static double north, east;
     public static Cities.city[] globalCities = new Cities.city[5];
+    private static ArrayList<Day> daysList;
 
     @Override
     public void handleMessage(@NonNull Message msg) {
@@ -37,6 +42,10 @@ public class MyHandler extends Handler {
                 getWeatherReport();
                 break;
         }
+    }
+
+    public static ArrayList<Day> getDaysList() {
+        return daysList;
     }
 
     private void getWeatherReport() {
@@ -52,6 +61,8 @@ public class MyHandler extends Handler {
         progressDialog.show();
 
         DarkSky result = VolleyRequests.darkSky(north, east);
+        setDaysList(daysList,result);
+
         // todo set second layout
         //  go to second layout
         progressDialog.dismiss();
@@ -162,6 +173,20 @@ public class MyHandler extends Handler {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setCancelable(false);
         return progressDialog;
+    }
+    public void setDaysList(ArrayList<Day> daysList,DarkSky weather) {
+
+        for (int i = 0; i < weather.daily.data.length; i++) {
+
+            Day day = new Day();
+            day.setTimezone(weather.daily.data[i].getTimezone());
+           // day.setTime(jsonObject.getLong("time"));
+            day.setIcon(weather.daily.data[i].getIcon());
+           // day.setSummary(jsonObject.getString("summary"));
+            day.setMaxTemperature(weather.daily.data[i].getTemperatureMax());
+
+            daysList.add(day);
+        }
     }
 
 

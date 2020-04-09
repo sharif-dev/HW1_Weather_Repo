@@ -1,6 +1,7 @@
 package com.example.weatherrepo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -18,6 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.startActivity;
+import static com.example.weatherrepo.MyHandler.getDaysList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -74,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         MyHandler.east = east;
         Message msg = Message.obtain();
         msg.what = MyHandler.GET_WEATHER_REPORT;
+        Intent i = new Intent(this, DailyListActivity.class);
+        i.putExtra("day_info",getDaysList());
+        startActivity(i);
         looperThread.handler.sendMessage(msg);
     }
 
@@ -85,6 +92,4 @@ public class MainActivity extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
         return isConnected;
     }
-
-
 }

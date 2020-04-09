@@ -23,7 +23,7 @@ public class DailyListActivity extends ListActivity {
         setContentView(R.layout.activity_daily_list);
 
         if(getIntent().getExtras() != null){
-            daysList = getIntent().getExtras().getParcelableArrayList("day_info");
+            daysList = MyHandler.getDaysList();
             Log.d("DailyA", daysList.toString());
 
         }
@@ -43,5 +43,8 @@ public class DailyListActivity extends ListActivity {
 
         String finalS = String.format("On %s it will be %s and today %s",dayOfWeek,temperature,message);
         Toast.makeText(this,finalS,Toast.LENGTH_SHORT).show();
+    }
+    public void getDaysList(ArrayList<Day> daysList){
+
     }
 }
