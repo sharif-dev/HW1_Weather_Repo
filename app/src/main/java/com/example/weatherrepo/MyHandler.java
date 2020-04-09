@@ -2,11 +2,13 @@ package com.example.weatherrepo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -95,6 +97,7 @@ public class MyHandler extends Handler {
                 globalCities[i].center[0] = cities.features[i].center[0];
                 globalCities[i].center[1] = cities.features[i].center[1];
                 activity.textViews[i].setText(cities.features[i].place_name);
+                //activity.textViews[i].setBackground(activity.getResources().getDrawable(R.drawable.text_style));
             }
         }
 

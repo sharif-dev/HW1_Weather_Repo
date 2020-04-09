@@ -16,55 +16,97 @@
         android:hint="@string/select_a_city"
         />
 
+
     <Button
         android:id="@+id/button_city"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/search"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#C5E7E7"
-        android:background="@drawable/custom_button"
         android:layout_gravity="center"
-        />
-
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/search"
+        android:textColor="#C5E7E7"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
     <TextView
         android:id="@+id/city0"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text=""/>
+        android:text=""
+        android:textSize="15sp"
+        android:background="@drawable/text_style"
+        android:padding="10dp"
+        android:textColor="#F3F6F6"/>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
     <TextView
         android:id="@+id/city1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text=""/>
+        android:text=""
+        android:textSize="15sp"
+        android:background="@drawable/text_style"
+        android:padding="10dp"
+        android:textColor="#F3F6F6"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
     <TextView
         android:id="@+id/city2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text=""/>
+        android:text=""
+        android:textSize="15sp"
+        android:background="@drawable/text_style"
+        android:padding="10dp"
+        android:textColor="#F3F6F6"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
     <TextView
         android:id="@+id/city3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text=""/>
+        android:text=""
+        android:textSize="15sp"
+        android:background="@drawable/text_style"
+        android:padding="10dp"
+        android:textColor="#F3F6F6"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
     <TextView
         android:id="@+id/city4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text=""/>
+        android:text=""
+        android:textSize="15sp"
+        android:background="@drawable/text_style"
+        android:padding="10dp"
+        android:textColor="#F3F6F6"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
 
 
 
