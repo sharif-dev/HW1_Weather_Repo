@@ -44,7 +44,8 @@
         android:padding="10dp"
         android:textAlignment="center"
         android:textColor="#C5E7E7"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
@@ -61,7 +62,8 @@
         android:padding="10dp"
         android:textColor="#C5E7E7"
         android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
@@ -78,7 +80,8 @@
         android:padding="10dp"
         android:textAlignment="center"
         android:textColor="#C5E7E7"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
@@ -95,7 +98,8 @@
         android:padding="10dp"
         android:textAlignment="center"
         android:textColor="#C5E7E7"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
@@ -112,7 +116,8 @@
         android:padding="10dp"
         android:textAlignment="center"
         android:textColor="#C5E7E7"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
