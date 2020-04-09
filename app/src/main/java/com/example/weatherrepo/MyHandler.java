@@ -31,7 +31,7 @@ public class MyHandler extends Handler {
     public static MainActivity activity;
     public static double north, east;
     public static Cities.city[] globalCities = new Cities.city[5];
-    private static ArrayList<Day> daysList;
+    private static ArrayList<Day> daysList = new ArrayList<>();
 
     @Override
     public void handleMessage(@NonNull Message msg) {
@@ -84,13 +84,13 @@ public class MyHandler extends Handler {
 
     private void mapBoxHandling() {
         //comment for Auto
-        /*
-        AutoCompleteTextView city = activity.findViewById(R.id.edit_query_city);
+
+        AutoCompleteTextView city = (AutoCompleteTextView) activity.findViewById(R.id.edit_query_city);
         String[] cities_string = activity.getResources().getStringArray(R.array.citys);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, cities_string);
         city.setAdapter(adapter);
-         */
-        EditText city = activity.findViewById(R.id.edit_query_city);
+
+        //EditText city = activity.findViewById(R.id.edit_query_city);
         final String cityName = city.getText().toString();
         city.setText("");
         Boolean isConnected = activity.isConectedToInternet();

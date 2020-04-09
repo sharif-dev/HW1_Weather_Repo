@@ -19,7 +19,7 @@ android:background="@drawable/bg_gradient">
     android:layout_below="@+id/textViewHeader"
     android:layout_alignParentRight="false" />
 
-    <!--    android:layout_above="@+id/textViewFooter"-->
+<!--        android:layout_above="@+id/textViewFooter"-->
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -33,12 +33,13 @@ android:background="@drawable/bg_gradient">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="The weather for 7 days"
+    android:text="@string/the_weather_for_7_days"
     android:id="@+id/textViewHeader"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
-    android:textColor="#80FFFF"
-    android:textSize="20sp" />
+    android:textColor="#C5E7E7"
+    android:textSize="22sp"
+    android:textStyle="bold" />
 
 </RelativeLayout>
     <!--<?xml version="1.0" encoding="utf-8"?>-->

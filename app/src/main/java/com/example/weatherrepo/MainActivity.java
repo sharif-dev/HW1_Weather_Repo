@@ -27,6 +27,7 @@ import static com.example.weatherrepo.MyHandler.getDaysList;
 public class MainActivity extends AppCompatActivity {
     public LooperThread looperThread = new LooperThread();
     TextView[] textViews;
+    public static final String DAY_DATA="day_info";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
