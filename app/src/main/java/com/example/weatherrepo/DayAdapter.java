@@ -15,10 +15,6 @@ import java.util.ArrayList;
 import com.example.weatherrepo.R;
 import com.example.weatherrepo.Day;
 
-/**
- * Created by rohan on 3/11/16.
- * TODO Understand code
- */
 public class DayAdapter extends BaseAdapter {
 
     Context context;
@@ -61,15 +57,14 @@ public class DayAdapter extends BaseAdapter {
 
         Day day = daysList.get(position);
         viewHolder.imageViewIcon.setImageResource(day.getIconId());
-        // TODO fix
         try {
             viewHolder.textViewTemperature.setText(String.valueOf((int)((day.getMaxTemperature() - 32)/1.8)));
         } catch (Exception e){
             Log.d("xxx", "getView: ");
-            viewHolder.textViewTemperature.setText("error day");
+            viewHolder.textViewTemperature.setText(R.string.error_day);
         }
         if(position == 0){
-            viewHolder.textViewDay.setText("Today");
+            viewHolder.textViewDay.setText(R.string.Today);
         }else {
             viewHolder.textViewDay.setText(day.getDayOfWeek());
         }

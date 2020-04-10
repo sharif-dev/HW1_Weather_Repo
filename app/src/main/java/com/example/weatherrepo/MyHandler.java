@@ -152,22 +152,10 @@ public class MyHandler extends Handler {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectItem = (String) parent.getItemAtPosition(position);
                 String[] params = selectItem.split(" ");
-                // todo add request to dark sky
+
             }
         });
         */
-
-
-
-//        ListView l = activity.findViewById(R.id.listView);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity.getApplicationContext(), android.R.layout.simple_list_item_1, a);
-//        l.setAdapter(adapter);
-        //activity.a[0] = "aaaaaaaaaaaa";
-        //activity.adapter.notifyDataSetChanged();
-
-
-
-
 
     }
 
