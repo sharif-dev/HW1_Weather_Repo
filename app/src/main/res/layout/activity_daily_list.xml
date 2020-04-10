@@ -17,7 +17,9 @@ android:background="@drawable/bg_gradient">
     android:divider="@null"
     android:layout_alignParentEnd="false"
     android:layout_below="@+id/textViewHeader"
-    android:layout_alignParentRight="false" />
+    android:layout_alignParentRight="false"
+    android:paddingTop="80dp"
+    />
 
 <!--        android:layout_above="@+id/textViewFooter"-->
 <TextView
